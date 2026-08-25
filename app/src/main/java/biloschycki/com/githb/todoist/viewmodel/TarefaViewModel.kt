@@ -1,4 +1,4 @@
-package biloschycki.com.githb.todoist.repository
+package biloschycki.com.githb.todoist.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
