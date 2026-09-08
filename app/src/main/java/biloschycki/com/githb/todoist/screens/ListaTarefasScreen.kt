@@ -1,5 +1,7 @@
 package biloschycki.com.githb.todoist.screens
-
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import biloschycki.com.githb.todoist.util.formatarDataHora
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -141,6 +143,15 @@ private fun TarefaItem(
                         overflow = TextOverflow.Ellipsis
                     )
                 }
+                if (tarefa.dataHora != null) {
+                    val atrasada = tarefa.dataHora < System.currentTimeMillis() && !tarefa.concluida
+                    Text(
+                        text = formatarDataHora(tarefa.dataHora),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = if (atrasada) MaterialTheme.colorScheme.error else Color.Unspecified,
+                        fontWeight = if (atrasada) FontWeight.Bold else FontWeight.Normal
+                    )
+                }
             }
             IconButton(onClick = onDeletar) {
                 Icon(Icons.Default.Delete, contentDescription = "Deletar tarefa")
@@ -192,6 +203,29 @@ private fun TarefaItemPreview() {
 private fun TarefaItemConcluidaPreview() {
     TarefaItem(
         tarefa = Tarefa(id = 2, titulo = "Enviar atividade", descricao = "Upload no portal da FIAP", concluida = true),
+        onCheckedChange = {},
+        onEditar = {},
+        onDeletar = {}
+    )
+}
+@Preview(showBackground = true, name = "Item com prazo futuro")
+@Composable
+private fun TarefaItemComPrazoPreview() {
+    val prazo = System.currentTimeMillis() + 86_400_000L
+    TarefaItem(
+        tarefa = Tarefa(id = 3, titulo = "Entregar atividade", descricao = "Upload no portal da FIAP", concluida = false, dataHora = prazo),
+        onCheckedChange = {},
+        onEditar = {},
+        onDeletar = {}
+    )
+}
+
+@Preview(showBackground = true, name = "Item atrasado")
+@Composable
+private fun TarefaItemAtrasadaPreview() {
+    val prazo = System.currentTimeMillis() - 86_400_000L
+    TarefaItem(
+        tarefa = Tarefa(id = 4, titulo = "Entregar atividade", descricao = "Upload no portal da FIAP", concluida = false, dataHora = prazo),
         onCheckedChange = {},
         onEditar = {},
         onDeletar = {}
