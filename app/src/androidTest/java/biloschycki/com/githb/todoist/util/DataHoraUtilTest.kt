@@ -1,4 +1,4 @@
-package biloschycki.com.githb.todoist.util;
+package biloschycki.com.githb.todoist.util
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e5db562-8c65-4608-8782-10f829636f14" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/biloschycki/com/githb/todoist/screens/ListaTarefasScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/biloschycki/com/githb/todoist/screens/ListaTarefasScreen.kt" afterDir="false" />
-    </list>
+    <list default="true" id="4e5db562-8c65-4608-8782-10f829636f14" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
